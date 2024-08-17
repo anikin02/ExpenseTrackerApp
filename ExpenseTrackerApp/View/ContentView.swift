@@ -11,7 +11,7 @@ struct ContentView: View {
   @State var selected = 1
     var body: some View {
       TabView(selection: $selected) {
-        Text("Dashboard")
+        DashboardView()
         .tabItem {
           Label("Dashboard", systemImage: "list.clipboard.fill")
         }
