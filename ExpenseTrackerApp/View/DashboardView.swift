@@ -31,7 +31,8 @@ struct DashboardView: View {
         SectorMark(angle: .value("Data", item.percent))
           .foregroundStyle(item.color)
       }
-      .frame(height: 250)
+      .frame(height: 230)
+      .padding(.bottom, 20)
       
       VStack(alignment: .leading, spacing: 8) {
         Text("Categories")

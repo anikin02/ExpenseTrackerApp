@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State var selected = 1
-    var body: some View {
-      TabView(selection: $selected) {
-        DashboardView()
+  @State var selected = 2
+  var body: some View {
+    TabView(selection: $selected) {
+      DashboardView()
         .tabItem {
           Label("Dashboard", systemImage: "list.clipboard.fill")
         }
         .tag(1)
-        
-        Text("Logs")
-        .tag(1)
-        .tabItem {
-          Label("Logs", systemImage: "archivebox.fill")
-        }
-        .tag(2)
+      
+      NavigationStack {
+        LogsView()
       }
+      .tabItem {
+        Label("Logs", systemImage: "archivebox.fill")
+      }
+      .tag(2)
     }
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }

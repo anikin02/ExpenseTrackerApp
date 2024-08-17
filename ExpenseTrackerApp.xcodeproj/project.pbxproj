@@ -13,6 +13,7 @@
 		78D0F8EE2C7086E0004F163D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78D0F8ED2C7086E0004F163D /* Preview Assets.xcassets */; };
 		78D0F8F82C708DB1004F163D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D0F8F72C708DB0004F163D /* DashboardView.swift */; };
 		78D0F8FA2C70B493004F163D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D0F8F92C70B493004F163D /* Category.swift */; };
+		78D0F8FC2C70C0D5004F163D /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D0F8FB2C70C0D5004F163D /* LogsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		78D0F8ED2C7086E0004F163D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78D0F8F72C708DB0004F163D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		78D0F8F92C70B493004F163D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		78D0F8FB2C70C0D5004F163D /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				78D0F8E82C7086DE004F163D /* ContentView.swift */,
 				78D0F8F72C708DB0004F163D /* DashboardView.swift */,
+				78D0F8FB2C70C0D5004F163D /* LogsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				78D0F8E92C7086DE004F163D /* ContentView.swift in Sources */,
 				78D0F8F82C708DB1004F163D /* DashboardView.swift in Sources */,
 				78D0F8E72C7086DE004F163D /* ExpenseTrackerAppApp.swift in Sources */,
+				78D0F8FC2C70C0D5004F163D /* LogsView.swift in Sources */,
 				78D0F8FA2C70B493004F163D /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
