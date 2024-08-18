@@ -47,6 +47,7 @@ struct LogsView: View {
           
           // Sort by and Order by
           Divider()
+            .padding(.bottom, 2)
           HStack {
             SwitchButton(headline: "Sort by", firstOptionImage: Image(systemName: "calendar"), secondOptionImage: Image(systemName: "dollarsign.circle"), firstOption: .calendar, secondOption: .money, optionButtonSelected: $sortBy)
             SwitchButton(headline: "Order by", firstOptionImage: Image(systemName: "arrow.up"), secondOptionImage: Image(systemName: "arrow.down"), firstOption: .asc, secondOption: .desc, optionButtonSelected: $orderBy)
@@ -58,7 +59,16 @@ struct LogsView: View {
           Divider()
           
           VStack {
+            LogItem(title: "Buy T-Shirt", dateString: "14 hours ago", expense: "$19.00")
+            Divider()
+            LogItem(title: "Buy T-Shirt", dateString: "14 hours ago", expense: "$19.00")
+            Divider()
+            LogItem(title: "Buy T-Shirt", dateString: "14 hours ago", expense: "$19.00")
+            Divider()
+            LogItem(title: "Buy T-Shirt", dateString: "14 hours ago", expense: "$19.00")
+            Divider()
           }
+          .padding(.horizontal, 25)
 
         }
       }
@@ -156,8 +166,36 @@ enum SwitchOption {
   case desc
   case calendar
   case money
+}
+
+struct LogItem: View {
+  let title: String
+  let dateString: String
+  let expense: String
   
-  case defaultOption
+  var body: some View {
+    HStack {
+      HStack {
+        ZStack() {
+          Circle()
+            .frame(width: 30, height: 30)
+            .foregroundStyle(Color.green)
+          Image(systemName: "basket")
+        }
+        VStack(alignment: .leading) {
+          Text(title)
+            .font(.system(size: 15, weight: .bold))
+          Text(dateString)
+            .font(.system(size: 13))
+        }
+        
+      }
+      Spacer()
+      
+      Text(expense)
+        .bold()
+    }
+  }
 }
 
 #Preview {
