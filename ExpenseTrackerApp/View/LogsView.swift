@@ -76,14 +76,8 @@ struct LogsView: View {
     .navigationTitle("Expense Logs")
     .toolbarTitleDisplayMode(.inline)
     .toolbar(content: {
-      Button{
-        
-      } label: {
-        Text("Add log")
-      }
+      NavigationLink("Add log", destination: AddNewLogView())
     })
-
-    
   }
 }
 

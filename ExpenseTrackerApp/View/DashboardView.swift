@@ -11,10 +11,10 @@ import Charts
 struct DashboardView: View {
   
   @State var dataTest: [Category] = [
-    .init(name: "Shoping", percent: 40, color: .green),
-    .init(name: "Health", percent: 20, color: .red),
-    .init(name: "Food", percent: 30, color: .orange),
-    .init(name: "Donation", percent: 10, color: .yellow)
+    .init(category: .shoping, percent: 40),
+    .init(category: .health, percent: 20),
+    .init(category: .food, percent: 30),
+    .init(category: .donation, percent: 10)
   ]
   
   var body: some View {

@@ -14,6 +14,7 @@
 		78D0F8F82C708DB1004F163D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D0F8F72C708DB0004F163D /* DashboardView.swift */; };
 		78D0F8FA2C70B493004F163D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D0F8F92C70B493004F163D /* Category.swift */; };
 		78D0F8FC2C70C0D5004F163D /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D0F8FB2C70C0D5004F163D /* LogsView.swift */; };
+		78D0F8FE2C720A0F004F163D /* AddNewLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D0F8FD2C720A0F004F163D /* AddNewLogView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		78D0F8F72C708DB0004F163D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		78D0F8F92C70B493004F163D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		78D0F8FB2C70C0D5004F163D /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
+		78D0F8FD2C720A0F004F163D /* AddNewLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				78D0F8E82C7086DE004F163D /* ContentView.swift */,
 				78D0F8F72C708DB0004F163D /* DashboardView.swift */,
 				78D0F8FB2C70C0D5004F163D /* LogsView.swift */,
+				78D0F8FD2C720A0F004F163D /* AddNewLogView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				78D0F8F82C708DB1004F163D /* DashboardView.swift in Sources */,
 				78D0F8E72C7086DE004F163D /* ExpenseTrackerAppApp.swift in Sources */,
 				78D0F8FC2C70C0D5004F163D /* LogsView.swift in Sources */,
+				78D0F8FE2C720A0F004F163D /* AddNewLogView.swift in Sources */,
 				78D0F8FA2C70B493004F163D /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
