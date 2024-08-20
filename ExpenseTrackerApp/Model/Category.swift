@@ -11,49 +11,29 @@ import RealmSwift
 
 struct Category {
   let category: Categories
-  let percent: Int
+  var percent: Int = 0
+  var value: Double = 0
   
-  var name: String = ""
-  var color: Color = .white
-  var image: Image = Image(systemName: "questionmark")
-  
-  init(category: Categories, percent: Int) {
+  init(category: Categories) {
     self.category = category
-    self.percent = percent
-    
-    setFields()
   }
   
-  mutating func setFields() {
+  static func getColor(category: Categories) -> Color {
     switch category {
     case .donation:
-      name = "Donation"
-      color = .pink
-      image = Image(systemName: "heart.circle.fill")
+      return(.pink)
     case .entertainment:
-      name = "Entertainment"
-      color = .brown
-      image = Image(systemName: "music.note.tv")
+      return(.brown)
     case .food:
-      name = "Food"
-      color = .purple
-      image = Image(systemName: "fork.knife.circle")
+      return(.purple)
     case .health:
-      name = "Health"
-      color = .orange
-      image = Image(systemName: "stethoscope")
+      return(.orange)
     case .shopping:
-      name = "Shopping"
-      color = .green
-      image = Image(systemName: "basket")
+      return(.green)
     case .transportation:
-      name = "Transportation"
-      color = .yellow
-      image = Image(systemName: "car")
+      return(.yellow)
     case .utilities:
-      name = "Utilities"
-      color = .blue
-      image = Image(systemName: "lightbulb.min")
+      return(.blue)
     }
   }
 }

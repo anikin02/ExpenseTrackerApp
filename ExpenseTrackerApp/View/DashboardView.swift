@@ -7,29 +7,40 @@
 
 import SwiftUI
 import Charts
+import RealmSwift
 
 struct DashboardView: View {
   
-  @State var dataTest: [Category] = [
-    .init(category: .shopping, percent: 40),
-    .init(category: .health, percent: 20),
-    .init(category: .food, percent: 30),
-    .init(category: .donation, percent: 10)
+  @State var categories: [Category] = [
+    .init(category: .donation),
+    .init(category: .entertainment),
+    .init(category: .food),
+    .init(category: .health),
+    .init(category: .shopping),
+    .init(category: .transportation),
+    .init(category: .utilities)
   ]
+  
+  @ObservedResults(LogModel.self) var logItems
+  
+  @State var totalValue: Double = 0
   
   var body: some View {
     VStack {
       VStack(spacing: 8) {
         Text("Total monthly expenses")
           .font(.system(size: 20, weight: .black))
-        Text("$313.99")
+        Text(String(format: "%.2f", totalValue))
           .font(.system(size: 40, weight: .bold))
       }
       .padding(.bottom, 20)
+      .onAppear {
+        setValues()
+      }
       
-      Chart(dataTest, id: \.name) { item in
-        SectorMark(angle: .value("Data", item.percent))
-          .foregroundStyle(item.color)
+      Chart(categories, id: \.category.rawValue) { item in
+        SectorMark(angle: .value("Data", (item.value / totalValue) * 100))
+          .foregroundStyle(Category.getColor(category: item.category))
       }
       .frame(height: 230)
       .padding(.bottom, 20)
@@ -39,40 +50,55 @@ struct DashboardView: View {
           .font(.system(size: 18, weight: .bold))
           .padding(.horizontal, 20)
         
-        List {
-          CategoryListItem()
-          CategoryListItem()
-          CategoryListItem()
-          CategoryListItem()
-          CategoryListItem()
-          CategoryListItem()
-          CategoryListItem()
+        VStack {
+          ForEach(categories, id: \.category.rawValue) { category in
+            CategoryListItem(category: category)
+          }
         }
-        .scrollIndicators(.hidden)
-        .listStyle(.inset)
+        .padding(.horizontal, 20)
+        .padding(.top, 8)
       }
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
   }
+  
+  func setValues() {
+    var values: [Categories : Double] = [
+      .donation: 0,
+      .entertainment: 0,
+      .food: 0,
+      .health: 0,
+      .shopping: 0,
+      .transportation: 0,
+      .utilities: 0
+    ]
+    
+    totalValue = 0
+    
+    for log in logItems {
+      values[log.categoryEnum]! += Double(log.expense) ?? 0
+      totalValue += Double(log.expense) ?? 0
+    }
+    
+    for index in categories.indices {
+      categories[index].value = values[categories[index].category]!
+    }
+  }
 }
 
 struct CategoryListItem: View {
+  var category: Category
   var body: some View {
     HStack {
       HStack {
-        ZStack() {
-          Circle()
-            .frame(width: 30, height: 30)
-            .foregroundStyle(Color.green)
-          Image(systemName: "basket")
-        }
-        Text("Shoping")
+        IconCategoryView(category: category.category)
+        Text(category.category.rawValue.capitalized)
           .font(.system(size: 15))
       }
       
       Spacer()
       
-      Text("$99.00")
+      Text(String(category.value))
         .bold()
     }
   }

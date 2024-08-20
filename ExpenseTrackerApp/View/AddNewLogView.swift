@@ -88,7 +88,7 @@ struct AddNewLogView: View {
           let log = LogModel()
           log.title = titleLog
           log.date = date
-          log.expense = "$\(expense)"
+          log.expense = expense
           log.category = category.rawValue
           
           $logItems.append(log)
