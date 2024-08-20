@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import RealmSwift
 
 struct Category {
   let category: Categories
@@ -41,8 +42,8 @@ struct Category {
       name = "Health"
       color = .orange
       image = Image(systemName: "stethoscope")
-    case .shoping:
-      name = "Shoping"
+    case .shopping:
+      name = "Shopping"
       color = .green
       image = Image(systemName: "basket")
     case .transportation:
@@ -57,12 +58,12 @@ struct Category {
   }
 }
 
-enum Categories {
+enum Categories: String {
   case donation
   case entertainment
   case food
   case health
-  case shoping
+  case shopping
   case transportation
   case utilities
 }

@@ -11,7 +11,7 @@ import Charts
 struct DashboardView: View {
   
   @State var dataTest: [Category] = [
-    .init(category: .shoping, percent: 40),
+    .init(category: .shopping, percent: 40),
     .init(category: .health, percent: 20),
     .init(category: .food, percent: 30),
     .init(category: .donation, percent: 10)
@@ -20,7 +20,7 @@ struct DashboardView: View {
   var body: some View {
     VStack {
       VStack(spacing: 8) {
-        Text("Total expenses")
+        Text("Total monthly expenses")
           .font(.system(size: 20, weight: .black))
         Text("$313.99")
           .font(.system(size: 40, weight: .bold))

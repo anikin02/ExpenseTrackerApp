@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AddNewLogView: View {
   
   @State var titleLog: String = ""
   @State var expense: String = ""
-  @State var categoty: Categories = .donation
+  @State var category: Categories = .donation
   @State var date: Date = Date()
+  
+  @State var showAlert: Bool = false
+  
+  @ObservedResults(LogModel.self) var logItems
   
   @Environment(\.presentationMode) var presentationMode
   
@@ -44,17 +49,17 @@ struct AddNewLogView: View {
         HStack {
           Text("Category")
           Spacer()
-          Picker("Category", selection: $categoty) {
+          Picker("Category", selection: $category) {
             Text("Donation")
-              .foregroundStyle(.gray)
+              .tag(Categories.donation)
             Text("Entertainment")
               .tag(Categories.entertainment)
             Text("Food")
               .tag(Categories.food)
             Text("Health")
               .tag(Categories.health)
-            Text("Shoping")
-              .tag(Categories.shoping)
+            Text("Shopping")
+              .tag(Categories.shopping)
             Text("Transportation")
               .tag(Categories.transportation)
             Text("Utilities")
@@ -76,11 +81,23 @@ struct AddNewLogView: View {
     .toolbarTitleDisplayMode(.large)
     .toolbar(content: {
       Button{
-        // New log
-        presentationMode.wrappedValue.dismiss()
+        
+        if titleLog.count == 0 && expense.count == 0 {
+          showAlert.toggle()
+        } else {
+          let log = LogModel()
+          log.title = titleLog
+          log.date = date
+          log.expense = "$\(expense)"
+          log.category = category.rawValue
+          
+          $logItems.append(log)
+          presentationMode.wrappedValue.dismiss()
+        }
       } label: {
         Text("Save")
       }
+      .alert(Text("Empty fields"), isPresented: $showAlert, actions: {})
     })
   }
 }
