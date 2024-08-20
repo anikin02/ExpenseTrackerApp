@@ -30,7 +30,7 @@ struct DashboardView: View {
       VStack(spacing: 8) {
         Text("Total monthly expenses")
           .font(.system(size: 20, weight: .black))
-        Text(String(format: "%.2f", totalValue))
+        Text(String(format: "$%.2f", totalValue))
           .font(.system(size: 40, weight: .bold))
       }
       .padding(.bottom, 20)
@@ -64,13 +64,13 @@ struct DashboardView: View {
   
   func setValues() {
     var values: [Categories : Double] = [
-      .donation: 0,
-      .entertainment: 0,
-      .food: 0,
-      .health: 0,
-      .shopping: 0,
-      .transportation: 0,
-      .utilities: 0
+      .donation: 0.00,
+      .entertainment: 0.00,
+      .food: 0.00,
+      .health: 0.00,
+      .shopping: 0.00,
+      .transportation: 0.00,
+      .utilities: 0.00
     ]
     
     totalValue = 0
@@ -98,7 +98,7 @@ struct CategoryListItem: View {
       
       Spacer()
       
-      Text(String(category.value))
+      Text(String(format: "$%.2f", category.value))
         .bold()
     }
   }

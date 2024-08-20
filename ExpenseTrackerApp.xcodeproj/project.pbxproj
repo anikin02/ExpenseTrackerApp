@@ -66,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				78D0F8F42C708712004F163D /* View */,
-				78D0F8F52C70871C004F163D /* ViewModel */,
 				78D0F8F62C708725004F163D /* Model */,
 				78D0F8E62C7086DE004F163D /* ExpenseTrackerAppApp.swift */,
 				78D0F8EA2C7086E0004F163D /* Assets.xcassets */,
@@ -93,13 +92,6 @@
 				78D0F9042C74BE7F004F163D /* IconCategoryView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		78D0F8F52C70871C004F163D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		78D0F8F62C708725004F163D /* Model */ = {

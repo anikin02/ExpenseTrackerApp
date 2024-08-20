@@ -75,7 +75,7 @@ struct LogsView: View {
               .filter(getFilterSetting())
               .sorted(byKeyPath: sortBy, ascending: orderBy),
                     id: \.id) { log in
-              LogItem(title: log.title, dateString: formatDate(log.date), expense: log.expense, category: log.categoryEnum) {
+              LogItem(title: log.title, dateString: formatDate(log.date), expense: String(format: "$%.2f", Double(log.expense) ?? 0), category: log.categoryEnum) {
                 $logItems.remove(log)
               }
             }

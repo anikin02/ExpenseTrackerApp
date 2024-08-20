@@ -36,7 +36,7 @@ struct AddNewLogView: View {
           TextField("Expense", text: $expense)
             .keyboardType(.decimalPad)
             .onReceive(expense.publisher.collect()) { input in
-              let filtered = input.filter { "0123456789.".contains($0) }
+              let filtered = input.filter { "0123456789,".contains($0) }
               if filtered != input {
                 self.expense = String(filtered)
               }
